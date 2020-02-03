@@ -9,11 +9,8 @@ import {List, ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import CommunicationChatBubble from 'material-ui/svg-icons/communication/chat-bubble';
 import cn from 'classnames';
-import {bindActionCreators} from "redux";
-import connect from "react-redux/es/connect/connect";
-import { addChat } from '../actions/chatActions';
 
-class ChatList extends React.Component {
+export default class ChatList extends React.Component {
   static propTypes = {
     chats: PropTypes.object.isRequired,
     addChat: PropTypes.func.isRequired,
@@ -83,11 +80,3 @@ class ChatList extends React.Component {
       )
    }
 }
-
-const mapStateToProps = ({ chatReducer }) => ({
-    chats: chatReducer.chats,
- });
- 
- const mapDispatchToProps = dispatch => bindActionCreators({ addChat }, dispatch);
- 
- export default connect(mapStateToProps, mapDispatchToProps)(ChatList);
